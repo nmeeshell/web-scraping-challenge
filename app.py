@@ -1,10 +1,10 @@
 from flask import Flask, render_template, redirect
-from flask_pymongo import flask_pymongo
+from flask_pymongo import PyMongo
 import scrape_mars
 import os
 
 app = Flask(__name__)
-app.config["MONGO_URI"] = os.environ.get('authentication')
+app.config["MONGO_URI"] = os.getenv("CONN")
 mongo = PyMongo(app)
 
 @app.route("/")
